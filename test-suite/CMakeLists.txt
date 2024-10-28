@@ -185,9 +185,6 @@ set(QL_TEST_HEADERS
 
 if (QL_BUILD_TEST_SUITE)
     add_library(ql_test OBJECT ${QL_TEST_SOURCES} ${QL_TEST_HEADERS})
-    if (NOT Boost_USE_STATIC_LIBS)
-        target_compile_definitions(ql_test PUBLIC BOOST_ALL_DYN_LINK)
-    endif()
     if(MSVC AND CMAKE_UNITY_BUILD)
         # for Unity builds, we need to add /bigobj
         target_compile_options(ql_test PUBLIC "/bigobj")
